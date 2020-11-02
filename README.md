@@ -1,5 +1,5 @@
 # quarkus-openapi
-Testing some dynamic processing of OpenAPI to reduce the number of annotations needed.  Will be injecting ur from `application.properties` into the run-time generated `openapi` file as well, to be able to use swagger-ui against dev/test/prod environments.
+Testing some dynamic processing of OpenAPI to reduce the number of annotations needed.  Will be injecting url's from `application.properties` into the run-time generated `openapi`, to easy use swagger-io authorization when running dev/test/prod environments.
 
 - [x] Generation of OpenAPI definitions for /hello
 - [x] Include static `main/resources/META-INF/openapi.yaml` containing /byebye definition
