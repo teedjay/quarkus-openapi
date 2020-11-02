@@ -1,0 +1,48 @@
+openapi: 3.0.3
+paths:
+  /byebye:
+    get:
+      security:
+        - apikey:
+        - oidc:
+          - openid
+          - profile
+          - email
+          - microprofile-jwt
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    apikey:
+      type: apiKey
+      name: api_key
+      in: header
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://example.com/api/oauth/dialog
+          scopes:
+            crud_scope: full access
+            read_scope: read only access
+    oidc:
+      type: openIdConnect
+      openIdConnectUrl: http://localhost/auth/realms/keycloak/.well-known/openid-configuration
+
+security: 
+  - basic: [] 
+  - apikey: [] 
+  - oauth2: []
+  - oidc: []
+
+
+      
